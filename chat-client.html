@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.js"></script>
+        <!-- szachy -->
+        <title>Chess</title>
+        <link rel="stylesheet" href="css/chessboard-1.0.0.min.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="js/chessboard-1.0.0.min.js"></script>
+        <script src="chess.js-master/chess.js"></script>
+
+        <style>
+            .czarny {
+              background-color: #555555; /* Green */
+              color: white;
+            }
+            .bialy {
+              background-color: white; /* Green */
+              color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <button class ="bialy" id="bialy">White</button>
+            <button class ="czarny" id="czarny" >Black</button>
+        </div>
+        <div id="myBoard" style="width: 400px"></div>
+        <label>Status:</label>
+        <div id="status"></div>
+        <label>FEN:</label>
+        <div id="fen"></div>
+        <label>PGN:</label>
+        <div id="pgn"></div>
+        
+        <div id="recievedMsg">
+
+        </div>
+        <!-- <script>
+            var stompClient = null;
+            $(document).ready(function() {
+
+                // createConnection();
+
+                $('#btn').click(function(){
+                    var message = $('#message').val();
+                    sendMessage(message);
+                    $('#recievedMsg').append('<span> You : ' + message + '</span><br>');
+                    $('#message').val('');
+                })
+
+                function createConnection() {
+                    var socket = new  SockJS('http://localhost:8090/chat-app')
+                    stompClient = Stomp.over(socket);
+                    stompClient.connect({},function(connectionData){
+                        console.log(connectionData);
+                        stompClient.subscribe('/sample/publish1', function(data) {
+                            console.log(data.body);
+                            $('#recievedMsg').append('<span> Sender : ' + data.body + '</span><br>');
+                        })
+                    })
+                }
+                function sendMessage(message) {
+                    stompClient.send('/app/user1', {}, message);
+                }
+            })
+        </script> -->
+        <script src="szachy.js"></script>
+    </body>
+</html>
